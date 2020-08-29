@@ -2,17 +2,45 @@ package com.revature.models;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="ers_users")
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="ers_users_id")
 	private int userId;
+	
+	@Column(name="ers_username", nullable=false, unique=true)
 	private String userName;
+	
+	@Column(name="ers_password", nullable=false)
 	private String passWord;
+	
+	@Column(name="user_first_name", nullable=false)
 	private String firstName;
+	
+	@Column(name="user_last_name", nullable=false)
 	private String lastName;
+	
+	@Column(name="user_email", nullable=false, unique=true)
 	private String email;
 	
+	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@JoinColumn(name="ers_user_role_id_fk", referencedColumnName="ers_user_role_id")
 	private UserRole userRoleId;
 	
 	public User() {

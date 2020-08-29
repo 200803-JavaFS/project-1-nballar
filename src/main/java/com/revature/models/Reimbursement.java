@@ -3,19 +3,54 @@ package com.revature.models;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="ers_reimbursement")
 public class Reimbursement implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="reimb_id")
 	private int reimbId;
+	
+	@Column(name="reimb_amount", nullable=false)
 	private double reimbAmt;
+	
+	@Column(name="reimb_submitted", nullable=false)
 	private Timestamp submitted;
+	
+	@Column(name="reimb_resolved")
 	private Timestamp resolved;
+	
+	@Column(name="reimb_description")
 	private String description;
 	
+	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@JoinColumn(name="reimb_author", referencedColumnName="ers_users_id", nullable=false)
 	private User reimbAuthorId;
+	
+	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@JoinColumn(name="reimb_resolver", referencedColumnName="ers_users_id")
 	private User reimbResolverId;
+	
+	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@JoinColumn(name="reimb_status_id_fk", referencedColumnName="reimb_status_id", nullable=false)
 	private ReimbStatus reimbStatusId;
+	
+	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@JoinColumn(name="reimb_type_id_fk", referencedColumnName="reimb_type_id", nullable=false)
 	private ReimbType reimbTypeId;
 	
 	public Reimbursement() {
