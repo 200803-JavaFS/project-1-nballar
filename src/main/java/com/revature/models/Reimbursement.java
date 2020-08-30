@@ -38,19 +38,19 @@ public class Reimbursement implements Serializable {
 	private String description;
 	
 	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	@JoinColumn(name="reimb_author", referencedColumnName="ers_users_id", nullable=false)
+	@JoinColumn(name="reimb_author", nullable=false)
 	private User reimbAuthorId;
 	
 	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	@JoinColumn(name="reimb_resolver", referencedColumnName="ers_users_id")
+	@JoinColumn(name="reimb_resolver")
 	private User reimbResolverId;
 	
 	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	@JoinColumn(name="reimb_status_id_fk", referencedColumnName="reimb_status_id", nullable=false)
+	@JoinColumn(name="reimb_status_id_fk", nullable=false)
 	private ReimbStatus reimbStatusId;
 	
 	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	@JoinColumn(name="reimb_type_id_fk", referencedColumnName="reimb_type_id", nullable=false)
+	@JoinColumn(name="reimb_type_id_fk", nullable=false)
 	private ReimbType reimbTypeId;
 	
 	public Reimbursement() {
