@@ -9,4 +9,25 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  <filter>
+  	<filter-name>Cors</filter-name>
+  	<filter-class>com.revature.web.filters.CorsFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>Cors</filter-name>
+  	<url-pattern>/*</url-pattern>
+  	<!-- All requests should go through our CORS filter -->
+  </filter-mapping>
+  
+  <servlet>
+  	<display-name>MasterServlet</display-name>
+  	<servlet-name>MasterServlet</servlet-name>
+  	<servlet-class>com.revature.web.MasterServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>MasterServlet</servlet-name>
+  	<url-pattern>/*</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

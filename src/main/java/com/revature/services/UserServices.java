@@ -24,9 +24,9 @@ public class UserServices {
 		return uDao.getUserById(id);
 	}
 	
-	public User getUserByUsernameAndPassword(String username, String password) {
-		log.info("Getting User by username "+username+" and password "+password);
-		return uDao.getUserByUsernameAndPassword(username, password);
+	public User getUserByUsername(String username) {
+		log.info("Getting User by username "+username);
+		return uDao.getUserByUsername(username);
 	}
 	
 	public boolean addUser(User u) {

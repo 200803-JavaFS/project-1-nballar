@@ -33,10 +33,10 @@ public class UserDAO implements IUserDAO{
 	}
 
 	@Override
-	public User getUserByUsernameAndPassword(String username, String password) {
+	public User getUserByUsername(String username) {
 		Session sesh = HibernateUtil.getSession();
 		
-		List<User> list = sesh.createQuery("FROM User WHERE userName = '"+username+"' and passWord = '"+password+"'", User.class).list();
+		List<User> list = sesh.createQuery("FROM User WHERE userName = '"+username+"'", User.class).list();
 		User u = list.get(0);
 		
 		return u;
