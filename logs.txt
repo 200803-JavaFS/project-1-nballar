@@ -1,0 +1,3 @@
+2020-09-01 07:00:20 INFO  UserServices:33 - Adding a new User User [userId=0, userName=opnami, passWord=713698937, firstName=Nancy, lastName=Ballar, email=rawwpork@gmail.com, userRoleId=2]
+2020-09-01 18:59:43 INFO  UserServices:33 - Adding a new User User [userId=0, userName=the_eddie, passWord=-576159084, firstName=Eddie, lastName=Ballar, email=rawwpork@gmail.com, userRoleId=1]
+2020-09-01 18:59:43 INFO  UserServices:33 - Adding a new User User [userId=0, userName=opnami, passWord=713698937, firstName=Nancy, lastName=Ballar, email=lightituplikedynamite@gmail.com, userRoleId=2]

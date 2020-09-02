@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import com.revature.models.User;
 import com.revature.utils.HibernateUtil;
@@ -52,6 +53,8 @@ public class UserDAO implements IUserDAO{
 		} catch (HibernateException e) {
 			e.printStackTrace();
 			return false;
+		} finally {
+			HibernateUtil.closeSes();
 		}
 	}
 
@@ -59,12 +62,18 @@ public class UserDAO implements IUserDAO{
 	public boolean updateUser(User u) {
 		Session sesh = HibernateUtil.getSession();
 		
+		Transaction tx = sesh.beginTransaction();
+		
 		try {
 			sesh.merge(u);
+			tx.commit();
 			return true;
 		} catch (HibernateException e) {
 			e.printStackTrace();
+			tx.rollback();
 			return false;
+		} finally {
+			HibernateUtil.closeSes();
 		}
 	}
 	
