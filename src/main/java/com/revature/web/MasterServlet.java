@@ -9,6 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.revature.controllers.LoginController;
+import com.revature.controllers.ReimbursementController;
+import com.revature.controllers.UserController;
+import com.revature.models.User;
+import com.revature.models.UserRole;
+import com.revature.services.UserServices;
 
 public class MasterServlet extends HttpServlet {
 
@@ -18,6 +23,9 @@ public class MasterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private static LoginController lc = new LoginController();
+	private static ReimbursementController rc = new ReimbursementController();
+	private static UserController uc = new UserController();
+	private static UserServices us = new UserServices();
 	
 	public MasterServlet() {
 		super();
@@ -28,7 +36,7 @@ public class MasterServlet extends HttpServlet {
 		
 		res.setContentType("application/json");
 		res.setStatus(400);
-		final String URI = req.getRequestURI().replace("/project0/", "");
+		final String URI = req.getRequestURI().replace("/project1/", "");
 		String[] portions = URI.split("/");
 		
 		System.out.println(Arrays.toString(portions));
@@ -41,8 +49,22 @@ public class MasterServlet extends HttpServlet {
 				case "login":
 					lc.login(req, res);
 					break;
-				case "logout":
-					lc.logout(req, res);
+				case "success":
+					if (req.getSession(false) != null && (boolean) req.getSession().getAttribute("loggedin")) {
+						User u = (User) req.getSession().getAttribute("user");
+						u = us.getUserByUsername(u.getUserName());
+						if(req.getMethod().equals("GET")) {
+							uc.sendUserRole(req, res, u);
+						}
+					}
+					break;
+				case "reimbursements":
+					if(portions.length == 2) {
+						int id = Integer.parseInt(portions[1]);
+						rc.getAllReimbursementsByAuthor(res, id);
+					} else {
+						rc.getAllReimbursements(res);
+					}
 					break;
 			}
 		} catch (NumberFormatException e) {

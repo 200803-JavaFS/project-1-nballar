@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.revature.models.LoginDTO;
+import com.revature.models.User;
 import com.revature.services.LoginService;
 
 public class LoginController {
@@ -33,11 +33,11 @@ public class LoginController {
 			
 			String body = new String(sb);
 			
-			LoginDTO l = om.readValue(body, LoginDTO.class);
+			User u = om.readValue(body, User.class);
 			
-			if(ls.login(l)) {
+			if(ls.login(u)) {
 				HttpSession sess = req.getSession();
-				sess.setAttribute("user", l);
+				sess.setAttribute("user", u);
 				sess.setAttribute("loggedin", true);
 				res.setStatus(200);
 				res.getWriter().println("Login Successful");
@@ -49,20 +49,6 @@ public class LoginController {
 				res.setStatus(401);
 				res.getWriter().println("Login Failed");
 			}
-		}
-	}
-	
-	public void logout(HttpServletRequest req, HttpServletResponse res) throws IOException{
-		HttpSession sess = req.getSession(false);
-		
-		if(sess != null) {
-			LoginDTO l = (LoginDTO) sess.getAttribute("user");
-			sess.invalidate();
-			res.setStatus(200);
-			res.getWriter().println(l.username+" has logged out successfully");
-		} else {
-			res.setStatus(400);
-			res.getWriter().println("You must be logged in to log out.");
 		}
 	}
 	

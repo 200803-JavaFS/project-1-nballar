@@ -15,7 +15,7 @@ public class CorsFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		
-System.out.println("CORS Filter levaraged");
+		System.out.println("CORS Filter levaraged");
 		
 		//If the response is not an HTTPServletResponse, then the filter
 		// passes on the request and response to the next part of the chain.

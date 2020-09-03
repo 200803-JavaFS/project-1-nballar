@@ -11,10 +11,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.models.Reimbursement;
 import com.revature.models.User;
 import com.revature.services.ReimbursementServices;
+import com.revature.services.UserServices;
 
 public class ReimbursementController {
 
 	private static ReimbursementServices rs = new ReimbursementServices();
+	private static UserServices us = new UserServices();
 	private static ObjectMapper om = new ObjectMapper();
 	
 	//Sends back a single reimbursement as a response
@@ -36,17 +38,25 @@ public class ReimbursementController {
 	public void getAllReimbursements(HttpServletResponse res) throws IOException {
 		
 		List<Reimbursement> all = rs.getAllReimbursements();
-		res.getWriter().println(om.writeValueAsString(all));
 		res.setStatus(200);
+		String json = om.writeValueAsString(all);
+		res.getWriter().println(json);
 		
 	}
 	
 	//Sends back all reimbursements by author
-	public void getAllReimbursementsByAuthor(HttpServletRequest req, HttpServletResponse res, User u) throws IOException {
+	public void getAllReimbursementsByAuthor(HttpServletResponse res, int id) throws IOException {
 		
+		User u = us.getUserById(id);
 		List<Reimbursement> allReimbsByAuthor = rs.getAllReimbursementsByAuthor(u);
-		res.getWriter().println(om.writeValueAsString(allReimbsByAuthor));
-		res.setStatus(200);
+		if (allReimbsByAuthor != null && allReimbsByAuthor.isEmpty()) {
+			res.setStatus(204);
+		} else {
+			res.setStatus(200);
+			String json = om.writeValueAsString(allReimbsByAuthor);
+			res.getWriter().println(json);
+		}
+		
 		
 	}
 	
