@@ -20,3 +20,19 @@
 2020-09-02 22:47:02 INFO  UserServices:28 - Getting User by username opnami
 2020-09-02 22:47:48 INFO  UserServices:28 - Getting User by username the_eddie
 2020-09-02 22:47:48 INFO  UserServices:28 - Getting User by username the_eddie
+2020-09-03 17:07:28 INFO  UserServices:28 - Getting User by username opnami
+2020-09-03 17:19:13 INFO  UserServices:28 - Getting User by username opnami
+2020-09-03 17:19:19 INFO  UserServices:28 - Getting User by username opnami
+2020-09-03 17:20:34 INFO  UserServices:28 - Getting User by username opnami
+2020-09-03 17:20:34 INFO  UserServices:28 - Getting User by username opnami
+2020-09-03 19:53:58 INFO  UserServices:28 - Getting User by username opnami
+2020-09-03 19:54:22 INFO  UserServices:28 - Getting User by username opnami
+2020-09-03 20:14:32 INFO  UserServices:28 - Getting User by username opnami
+2020-09-03 20:14:54 INFO  UserServices:28 - Getting User by username opnami
+2020-09-03 20:14:57 INFO  ReimbursementServices:20 - Getting all Reimbursements
+2020-09-03 20:17:56 INFO  UserServices:28 - Getting User by username opnami
+2020-09-03 20:18:16 INFO  UserServices:28 - Getting User by username opnami
+2020-09-03 20:18:32 INFO  ReimbursementServices:20 - Getting all Reimbursements
+2020-09-03 21:32:30 INFO  UserServices:28 - Getting User by username opnami
+2020-09-03 21:32:39 INFO  UserServices:28 - Getting User by username opnami
+2020-09-03 21:32:43 INFO  ReimbursementServices:20 - Getting all Reimbursements

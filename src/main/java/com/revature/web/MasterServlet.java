@@ -58,12 +58,21 @@ public class MasterServlet extends HttpServlet {
 						}
 					}
 					break;
+				//Still trying to understand restful endpoints; need to fix this case
 				case "reimbursements":
-					if(portions.length == 2) {
-						int id = Integer.parseInt(portions[1]);
-						rc.getAllReimbursementsByAuthor(res, id);
-					} else {
-						rc.getAllReimbursements(res);
+					if(req.getMethod().equals("GET")) {
+						if(portions.length == 3) {
+							//It's just getting one reimbursement here
+							int rId = Integer.parseInt(portions[1]);
+							rc.getReimbursement(res, rId);
+						}else if(portions.length == 2) {
+							//Where I'd put status id I think and get reimbursements by status
+						}else {
+							rc.getAllReimbursements(res);
+						}
+						
+					} else if(req.getMethod().equals("POST")) {
+						rc.addReimbursement(req, res);
 					}
 					break;
 			}

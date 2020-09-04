@@ -11,5 +11,33 @@
     <header class="jumbotron">
         <h1>Finance Manager Home Page</h1>
     </header>
+    <br>
+    <h3>View All Reimbursements</h3>
+    <br>
+    <div class="container" id="fullcontainer">
+        <div class="row" id="table-row">
+            <button id="getAllBtn" class="btn btn-success">Get All Reimbursements</button>
+            <table class="table-hover table-bordered" id="reimbtable">
+                <thead>
+                    <tr>
+                        <th>Reimbursement ID</th>
+                        <th>Reimbursement Amount</th>
+                        <th>Reimbursement Submitted</th>
+                        <th>Reimbursement Resolved</th>
+                        <th>Reimbursement Description</th>
+                        <th>Reimbursement Author ID</th>
+                        <th>Reimbursement Resolver ID</th>
+                        <th>Reimbursement Status ID</th>
+                        <th>Reimbursement Type ID</th>
+                    </tr>
+                </thead>
+                <tbody id="reimbbody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <script src="fmhp.js"></script>
 </body>
 </html>
