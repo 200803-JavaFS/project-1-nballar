@@ -2,6 +2,7 @@ package com.revature.controllers;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -119,7 +120,7 @@ public class ReimbursementController {
 			rtype = new ReimbType(4, "other");
 		}
 		
-		Reimbursement r = new Reimbursement(rAmt, rDesc, rAuthor, nrs, rtype);
+		Reimbursement r = new Reimbursement(rAmt, new Timestamp(System.currentTimeMillis()), null, rDesc, rAuthor, null, nrs, rtype);
 		
 		if (rs.addReimbursement(r)) {
 			res.setStatus(201);
@@ -166,6 +167,7 @@ public class ReimbursementController {
 		r.setReimbStatusId(rStatus);
 		User resolver = us.getUserById(resolverId);
 		r.setReimbResolverId(resolver);
+		r.setResolved(new Timestamp(System.currentTimeMillis()));
 		
 		if (rs.updateReimbursement(r)) {
 			res.setStatus(201);

@@ -12,10 +12,10 @@
         <h1>Finance Manager Home Page</h1>
     </header>
     <br>
-    <h3>View All Reimbursements</h3>
     <br>
     <div class="container" id="fullcontainer">
         <div class="row" id="table-row">
+            <h3>View All Reimbursements</h3>
             <button id="getAllBtn" class="btn btn-success">Get All Reimbursements</button>
             <table class="table-hover table-bordered" id="reimbtable">
                 <thead>
@@ -35,11 +35,85 @@
                 </tbody>
             </table>
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="row" id="status table-row">
+            <h3>View Reimbursements By Status</h3>
+            <div class="form-group">
+                <p>Which of the reimbursements would you like to see based off the status?</p>
+                <input type="radio" id="pending" name="status" value="1">
+                <label for="pending">1. Pending</label><br>
+                <input type="radio" id="approved1" name="status" value="2">
+                <label for="approved">2. Approved</label><br>
+                <input type="radio" id="denied2" name="status" value="3">
+                <label for="denied">3. Denied</label>
+                <button type="submit">Submit</button>
+            </div>      
+                <button id="getByStatusBtn" class="btn btn-success">Get Reimbursements By Status</button>
+            <table class="table-hover table-bordered" id="reimbtable2">
+                <thead>
+                    <tr>
+                        <th>Reimbursement ID</th>
+                        <th>Reimbursement Amount</th>
+                        <th>Reimbursement Submitted</th>
+                        <th>Reimbursement Resolved</th>
+                        <th>Reimbursement Description</th>
+                        <th>Reimbursement Author ID</th>
+                        <th>Reimbursement Resolver ID</th>
+                        <th>Reimbursement Status ID</th>
+                        <th>Reimbursement Type ID</th>
+                    </tr>
+                </thead>
+                <tbody id="reimbbody2">
+                </tbody>
+            </table>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="row" id="updateStatusForm">
+            <h3>Approve or Deny Reimbursement Status</h3>
+            <div class="form-group">
+                <label for="reimbIdInput">ID Number of the Reimbursement you'd like to approve/deny:</label>
+                <input type="number" id="reimbIdInput"/>
+            </div>
+            <div class="form-group">
+                <input type="radio" id="approved2" name="status" value="2">
+                <label for="approved2">2. Approved</label><br>
+                <input type="radio" id="denied2" name="status" value="3">
+                <label for="denied2">3. Denied</label>
+            </div>
+            <button id="updateStatusBtn" class="btn btn-success">Update</button>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="row" id="singleReimb">
+            <h3>View Single Reimbursement</h3>
+            
+            <table class="table-hover table-bordered" id="reimbtable3">
+                <thead>
+                    <tr>
+                        <th>Reimbursement ID</th>
+                        <th>Reimbursement Amount</th>
+                        <th>Reimbursement Submitted</th>
+                        <th>Reimbursement Resolved</th>
+                        <th>Reimbursement Description</th>
+                        <th>Reimbursement Author ID</th>
+                        <th>Reimbursement Resolver ID</th>
+                        <th>Reimbursement Status ID</th>
+                        <th>Reimbursement Type ID</th>
+                    </tr>
+                </thead>
+                <tbody id="reimbbody3">
+                </tbody>
+            </table>
+        </div>
     </div>
-    <br>
-    <br>
-
-
     <script src="login.js"></script>
     <script src="fmhp.js"></script>
 </body>

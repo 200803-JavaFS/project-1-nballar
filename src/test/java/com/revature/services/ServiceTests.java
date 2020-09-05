@@ -3,6 +3,8 @@ package com.revature.services;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.sql.Timestamp;
+
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -48,12 +50,26 @@ public class ServiceTests {
 		assertEquals(addedUser, true);
 	}
 	
-	//For some reason, doesn't work for me 
-//	@Test
-//	public void addReimbTest() {
-//		boolean addedReimb = rs.addReimbursement(rtest);
-//		assertTrue(addedReimb);
-//	}
+	
+	@Test
+	public void addReimbTest() {
+		User ut = us.getUserById(7);
+		Reimbursement rt = new Reimbursement(77.77, new Timestamp(System.currentTimeMillis()), null, "test stuff", ut, null, rstest, rttest);
+		boolean addedReimb = rs.addReimbursement(rt);
+		assertTrue(addedReimb);
+	}
+	
+	@AfterClass
+	public static void reset() {
+		urtest = null;
+		utest = null;
+		rstest = null;
+		rttest = null;
+		rtest = null;
+		ls = null;
+		rs = null;
+		us = null;
+	}
 	
 	
 }

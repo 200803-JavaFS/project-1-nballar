@@ -58,7 +58,6 @@ public class MasterServlet extends HttpServlet {
 						}
 					}
 					break;
-				//Still trying to understand restful endpoints; need to fix this case
 				case "reimbursements":
 					if(req.getMethod().equals("GET")) {
 						if(portions.length == 2) {
