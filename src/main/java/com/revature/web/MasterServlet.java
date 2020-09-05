@@ -61,18 +61,23 @@ public class MasterServlet extends HttpServlet {
 				//Still trying to understand restful endpoints; need to fix this case
 				case "reimbursements":
 					if(req.getMethod().equals("GET")) {
-						if(portions.length == 3) {
-							//It's just getting one reimbursement here
+						if(portions.length == 2) {
 							int rId = Integer.parseInt(portions[1]);
 							rc.getReimbursement(res, rId);
-						}else if(portions.length == 2) {
-							//Where I'd put status id I think and get reimbursements by status
+						}else if(portions[1].equals("status")) {
+							int rsId = Integer.parseInt(portions[2]);
+							rc.getAllReimbursementsByStatus(res, rsId);
+						} else if(portions[1].equals("author")){
+							int raId = Integer.parseInt(portions[2]);
+							rc.getAllReimbursementsByAuthor(res, raId);
 						}else {
 							rc.getAllReimbursements(res);
 						}
 						
 					} else if(req.getMethod().equals("POST")) {
 						rc.addReimbursement(req, res);
+					} else if(req.getMethod().equals("PUT")) {
+						rc.updateReimbStatus(req, res);
 					}
 					break;
 			}
@@ -84,6 +89,11 @@ public class MasterServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		doGet(req, res);
+	}
+	
+	@Override
+	protected void doPut(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		doGet(req, res);
 	}
 	

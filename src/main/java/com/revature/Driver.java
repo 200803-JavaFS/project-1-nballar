@@ -20,6 +20,13 @@ public class Driver {
 		//Adding Users now persists to the database. Will add reimbursements through DBeaver because thinking of using Trigger Functions 
 		//for inserting reimbursements and updating reimbursements
 		addUsers();
+		
+//		String testpw = "test";
+//		StringBuilder sbtest = new StringBuilder();
+//		sbtest.append(testpw.hashCode());
+//		String testhpw = sbtest.toString();
+//		System.out.println(testhpw);
+		
 	}
 	
 	public static void addUsers() {

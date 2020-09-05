@@ -238,9 +238,9 @@ public class Reimbursement implements Serializable {
 	@Override
 	public String toString() {
 		return "Reimbursement [reimbId=" + reimbId + ", reimbAmt=" + reimbAmt + ", submitted=" + submitted
-				+ ", resolved=" + resolved + ", description=" + description + ", reimbAuthorId=" + reimbAuthorId.getUserId()
-				+ ", reimbResolverId=" + reimbResolverId.getUserId() + ", reimbStatusId=" + reimbStatusId.getStatusId() + ", reimbTypeId="
-				+ reimbTypeId.getTypeId() + "]";
+				+ ", resolved=" + resolved + ", description=" + description + ", reimbAuthorId=" + reimbAuthorId
+				+ ", reimbResolverId=" + reimbResolverId + ", reimbStatusId=" + reimbStatusId + ", reimbTypeId="
+				+ reimbTypeId + "]";
 	}
 	
 	

@@ -1,4 +1,5 @@
-const url = "http://localhost:8080/project1/"
+const url = "http://localhost:8080/project1/";
+let uId = sessionStorage.getItem("uId");
 
 document.getElementById("getAllBtn").addEventListener("click", getAllFunc);
 
