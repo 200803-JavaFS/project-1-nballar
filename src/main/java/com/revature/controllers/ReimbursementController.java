@@ -25,21 +25,6 @@ public class ReimbursementController {
 	private static UserServices us = new UserServices();
 	private static ObjectMapper om = new ObjectMapper();
 	
-	//Sends back a single reimbursement as a response
-	public void getReimbursement(HttpServletResponse res, int id) throws IOException {
-		
-		Reimbursement r = rs.getReimbursementById(id);
-		
-		if (r == null) {
-			res.setStatus(204);
-		} else {
-			res.setStatus(200);
-			String json = om.writeValueAsString(r);
-			res.getWriter().println(json);
-		}
-		
-	}
-	
 	//Sends back all of the reimbursements back as a response
 	public void getAllReimbursements(HttpServletResponse res) throws IOException {
 		
@@ -66,7 +51,7 @@ public class ReimbursementController {
 		
 	}
 	
-	//Gets all reimbursements by status
+	//Sends back all reimbursements by status
 	public void getAllReimbursementsByStatus (HttpServletResponse res, int sId) throws IOException {
 		
 		ReimbStatus rStats = rsdao.getRStatusById(sId);
@@ -170,7 +155,7 @@ public class ReimbursementController {
 		r.setResolved(new Timestamp(System.currentTimeMillis()));
 		
 		if (rs.updateReimbursement(r)) {
-			res.setStatus(201);
+			res.setStatus(202);
 			res.getWriter().println("Reimbursement Updated");
 		} else {
 			res.setStatus(403);

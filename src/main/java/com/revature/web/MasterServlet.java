@@ -60,24 +60,21 @@ public class MasterServlet extends HttpServlet {
 					break;
 				case "reimbursements":
 					if(req.getMethod().equals("GET")) {
-						if(portions.length == 2) {
-							int rId = Integer.parseInt(portions[1]);
-							rc.getReimbursement(res, rId);
-						}else if(portions[1].equals("status")) {
-							int rsId = Integer.parseInt(portions[2]);
-							rc.getAllReimbursementsByStatus(res, rsId);
-						} else if(portions[1].equals("author")){
-							int raId = Integer.parseInt(portions[2]);
-							rc.getAllReimbursementsByAuthor(res, raId);
-						}else {
-							rc.getAllReimbursements(res);
-						}
-						
+						rc.getAllReimbursements(res);
 					} else if(req.getMethod().equals("POST")) {
 						rc.addReimbursement(req, res);
-					} else if(req.getMethod().equals("PUT")) {
-						rc.updateReimbStatus(req, res);
 					}
+					break;
+				case "reimbursementsbystatus":
+					int rsId = Integer.parseInt(portions[1]);
+					rc.getAllReimbursementsByStatus(res, rsId);
+					break;
+				case "reimbursementsbyauthor":
+					int raId = Integer.parseInt(portions[1]);
+					rc.getAllReimbursementsByAuthor(res, raId);
+					break;
+				case "updatereimbstatus":
+					rc.updateReimbStatus(req, res);
 					break;
 			}
 		} catch (NumberFormatException e) {
