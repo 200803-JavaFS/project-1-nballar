@@ -1,15 +1,15 @@
 let uId = sessionStorage.getItem("uId");
 
 document.getElementById("getReimbsByUserBtn").addEventListener("click", getReimbsByUserFunc);
-
 document.getElementById("addReimbBtn").addEventListener("click", addReimbFunc);
+document.getElementById("logoutBtn").addEventListener("click", logoutFunc);
 
 async function getReimbsByUserFunc() {
 
     document.getElementById("reimbbody").innerText = "";
     let uId = sessionStorage.getItem("uId");
 
-    let resp = await fetch(url+"reimbursementsbyauthor"+uId, {
+    let resp = await fetch(url+"reimbursementsbyauthor/"+uId, {
         credentials: 'include'
     });
 
@@ -91,8 +91,20 @@ async function addReimbFunc(){
 
     if(resp.status===201) {
         getReimbsByUserFunc();
+        document.getElementById("addSuccess").innerHTML = "Reimbursement successfully added"
     } else {
-        document.getElementById("table-row").innerHTML = "Reimbursement couldn't be added";
+        document.getElementById("addSuccess").innerHTML = "Reimbursement couldn't be added";
     }
 
+}
+
+async function logoutFunc(){
+
+    let resp = await fetch(url+"logout", {
+        credentials: "include"
+    });
+
+    if(resp.status===200) {
+        window.location.href = "index.html";
+    }
 }

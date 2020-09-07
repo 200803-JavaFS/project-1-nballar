@@ -52,4 +52,18 @@ public class LoginController {
 		}
 	}
 	
+	public void logout(HttpServletRequest req, HttpServletResponse res) throws IOException{
+		HttpSession sess = req.getSession(false);
+
+		if(sess != null) {
+			User u = (User) sess.getAttribute("user");
+			sess.invalidate();
+			res.setStatus(200);
+			res.getWriter().println(u.getUserName()+" has logged out successfully");
+		} else {
+			res.setStatus(400);
+			res.getWriter().println("You must be logged in to log out.");
+		}
+	}
+	
 }

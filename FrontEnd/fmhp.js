@@ -3,6 +3,7 @@ let uId = sessionStorage.getItem("uId");
 document.getElementById("getAllBtn").addEventListener("click", getAllFunc);
 document.getElementById("getByStatusBtn").addEventListener("click", getReimbsByStatusFunc);
 document.getElementById("updateStatusBtn").addEventListener("click", updateReimbStatusFunc);
+document.getElementById("logoutBtn").addEventListener("click", logoutFunc);
 
 async function getAllFunc() {
 
@@ -153,5 +154,16 @@ async function updateReimbStatusFunc(){
         document.getElementById("updateSuccess").innerHTML = "Reimbursement update successful";
     } else {
         document.getElementById("updateSuccess").innerHTML = "Reimbursement update failure";
+    }
+}
+
+async function logoutFunc(){
+
+    let resp = await fetch(url+"logout", {
+        credentials: "include"
+    });
+
+    if(resp.status===200) {
+        window.location.href = "index.html";
     }
 }

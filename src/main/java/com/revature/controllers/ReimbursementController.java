@@ -87,12 +87,12 @@ public class ReimbursementController {
 		
 		ReimbursementDTO rdto = om.readValue(body, ReimbursementDTO.class);
 		
-		double rAmt = rdto.getAmt();
-		String rDesc = rdto.getDescription();
-		User rAuthor = us.getUserById(rdto.getrAuthorId());
+		double rAmt = rdto.amt;
+		String rDesc = rdto.description;
+		User rAuthor = us.getUserById(rdto.rAuthorId);
 		ReimbStatus nrs = new ReimbStatus(1, "pending");
 		
-		String type = rdto.getrType();
+		String type = rdto.rType;
 		
 		ReimbType rtype = null;
 		if (type.toLowerCase().equals("food")) {
@@ -134,11 +134,11 @@ public class ReimbursementController {
 		
 		ReimbursementDTO rdto = om.readValue(body, ReimbursementDTO.class);
 		
-		int rId = rdto.getId();
+		int rId = rdto.id;
 		
 		Reimbursement r = rs.getReimbursementById(rId);
 		
-		String status = rdto.getrStatus();
+		String status = rdto.rStatus;
 		
 		ReimbStatus rStatus = null;
 		if (status.equals("approved")) {
@@ -147,7 +147,7 @@ public class ReimbursementController {
 			rStatus = new ReimbStatus(3, "denied");
 		}
 		
-		int resolverId = rdto.getrAuthorId();
+		int resolverId = rdto.rAuthorId;
 		
 		r.setReimbStatusId(rStatus);
 		User resolver = us.getUserById(resolverId);

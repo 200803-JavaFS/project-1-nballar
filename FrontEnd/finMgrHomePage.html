@@ -7,87 +7,94 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
-<body>
-    <header class="jumbotron">
+<body style="background:#a2b9bc">
+    <header class="jumbotron" style="background:#6b5b95">
         <h1>Finance Manager Home Page</h1>
     </header>
     <br>
     <br>
     <div class="container" id="fullcontainer">
         <div class="row" id="table-row">
-            <h3>View All Reimbursements</h3>
-            <button id="getAllBtn" class="btn btn-success">Get All Reimbursements</button>
-            <table class="table-hover table-bordered" id="reimbtable">
-                <thead>
-                    <tr>
-                        <th>Reimbursement ID</th>
-                        <th>Reimbursement Amount</th>
-                        <th>Reimbursement Submitted</th>
-                        <th>Reimbursement Resolved</th>
-                        <th>Reimbursement Description</th>
-                        <th>Reimbursement Author ID</th>
-                        <th>Reimbursement Resolver ID</th>
-                        <th>Reimbursement Status ID</th>
-                        <th>Reimbursement Type ID</th>
-                    </tr>
-                </thead>
-                <tbody id="reimbbody">
-                </tbody>
-            </table>
+            <div class="col">
+                <h3>View All Reimbursements</h3>
+                <button id="getAllBtn" class="btn btn-outline-info">Get All Reimbursements</button>
+                <table class="table-hover table-bordered" id="reimbtable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Amount</th>
+                            <th>Time Submitted</th>
+                            <th>Time Resolved</th>
+                            <th>Description</th>
+                            <th>Author ID</th>
+                            <th>Resolver ID</th>
+                            <th>Status ID</th>
+                            <th>Type ID</th>
+                        </tr>
+                    </thead>
+                    <tbody id="reimbbody">
+                    </tbody>
+                </table>
+            </div>
         </div>
         <br>
         <br>
         <br>
         <br>
         <div class="row" id="status table-row">
-            <h3>View Reimbursements By Status</h3>
-            <div class="form-group">
-                <p>1=Pending, 2=Approved, 3=Denied</p>
-                <label for="reimbIdInput">Status ID Number of the Reimbursements:</label>
-                <input type="number" id="statusIdInput"/>
+            <div class="col">
+                <h3>View Reimbursements By Status</h3>
+                <div class="form-group">
+                    <p>1=Pending, 2=Approved, 3=Denied</p>
+                    <label for="reimbIdInput">Status ID Number of the Reimbursements:</label>
+                    <input type="number" id="statusIdInput"/>
+                </div>
+                <button id="getByStatusBtn" class="btn btn-outline-info">Submit</button>
+                <table class="table-hover table-bordered" id="reimbtable2">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Amount</th>
+                            <th>Time Submitted</th>
+                            <th>Time Resolved</th>
+                            <th>Description</th>
+                            <th>Author ID</th>
+                            <th>Resolver ID</th>
+                            <th>Status ID</th>
+                            <th>Type ID</th>
+                        </tr>
+                    </thead>
+                    <tbody id="reimbbody2">
+                    </tbody>
+                </table>
             </div>
-            <button id="getByStatusBtn" class="btn btn-success">Submit</button>
-            <table class="table-hover table-bordered" id="reimbtable2">
-                <thead>
-                    <tr>
-                        <th>Reimbursement ID</th>
-                        <th>Reimbursement Amount</th>
-                        <th>Reimbursement Submitted</th>
-                        <th>Reimbursement Resolved</th>
-                        <th>Reimbursement Description</th>
-                        <th>Reimbursement Author ID</th>
-                        <th>Reimbursement Resolver ID</th>
-                        <th>Reimbursement Status ID</th>
-                        <th>Reimbursement Type ID</th>
-                    </tr>
-                </thead>
-                <tbody id="reimbbody2">
-                </tbody>
-            </table>
         </div>
         <br>
         <br>
         <br>
         <br>
         <div class="row" id="updateStatusForm">
-            <h3>Approve or Deny Reimbursement Status</h3>
-            <div class="form-group">
-                <label for="reimbIdInput">ID Number of the Reimbursement you'd like to approve/deny:</label>
-                <input type="number" id="reimbIdInput"/>
+            <div class="col">
+                <h3>Approve or Deny Reimbursement Status</h3>
+                <div class="form-group">
+                    <label for="reimbIdInput">ID Number of the Reimbursement you'd like to approve/deny:</label>
+                    <input type="number" id="reimbIdInput"/>
+                </div>
+                <div class="form-group">
+                    <input type="radio" id="approved" name="status" value="approved">
+                    <label for="approved">2. Approved</label><br>
+                    <input type="radio" id="denied" name="status" value="denied">
+                    <label for="denied">3. Denied</label>
+                </div>
+                <button id="updateStatusBtn" class="btn btn-outline-success">Update</button>
+                <h6 id="updateSuccess"></h6>
             </div>
-            <div class="form-group">
-                <input type="radio" id="approved" name="status" value="approved">
-                <label for="approved">2. Approved</label><br>
-                <input type="radio" id="denied" name="status" value="denied">
-                <label for="denied">3. Denied</label>
-            </div>
-            <button id="updateStatusBtn" class="btn btn-success">Update</button>
-            <h6 id="updateSuccess"></h6>
         </div>
         <br>
         <br>
         <br>
         <br>
+        <button id="logoutBtn" class="btn btn-outline-primary">Logout</button>
     </div>
     <script src="login.js"></script>
     <script src="fmhp.js"></script>

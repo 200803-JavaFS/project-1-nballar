@@ -12,7 +12,6 @@ import com.revature.controllers.LoginController;
 import com.revature.controllers.ReimbursementController;
 import com.revature.controllers.UserController;
 import com.revature.models.User;
-import com.revature.models.UserRole;
 import com.revature.services.UserServices;
 
 public class MasterServlet extends HttpServlet {
@@ -75,6 +74,9 @@ public class MasterServlet extends HttpServlet {
 					break;
 				case "updatereimbstatus":
 					rc.updateReimbStatus(req, res);
+					break;
+				case "logout":
+					lc.logout(req, res);
 					break;
 			}
 		} catch (NumberFormatException e) {

@@ -38,7 +38,7 @@ public class ServiceTests {
 	@Before
 	public void setTests() {
 		urtest = new UserRole(1, "Employee");
-		utest = new User("test", "3556498", "Test", "Test", "test@gmail.com", urtest);
+		utest = new User("test1", "3556498", "Test", "Test", "test1@gmail.com", urtest);
 		rstest = new ReimbStatus(1, "pending");
 		rttest = new ReimbType(1, "food");
 		rtest = new Reimbursement(77.77, "test stuff", utest, rstest, rttest);
