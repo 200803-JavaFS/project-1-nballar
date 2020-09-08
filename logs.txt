@@ -137,3 +137,31 @@
 2020-09-06 17:21:17 INFO  ReimbursementServices:45 - Updating Reimbursement Reimbursement [reimbId=5, reimbAmt=3.0, submitted=2020-09-06 17:15:56.571475, resolved=2020-09-06 17:21:17.114, description=bought candy, reimbAuthorId=User [userId=5, userName=the_eddie, passWord=-576159084, firstName=Eddie, lastName=Ballar, email=rawwpork@gmail.com, userRoleId=1], reimbResolverId=User [userId=6, userName=opnami, passWord=713698937, firstName=Nancy, lastName=Ballar, email=lightituplikedynamite@gmail.com, userRoleId=2], reimbStatusId=ReimbStatus [statusId=3, status=denied], reimbTypeId=ReimbType [typeId=1, type=food]]
 2020-09-06 17:21:22 INFO  ReimbursementServices:20 - Getting all Reimbursements
 2020-09-06 17:21:37 INFO  ReimbursementServices:30 - Getting all Reimbursements by statusReimbStatus [statusId=3, status=denied]
+2020-09-07 16:57:25 INFO  UserServices:28 - Getting User by username opnami
+2020-09-07 16:57:48 INFO  UserServices:28 - Getting User by username opnami
+2020-09-07 17:02:03 INFO  ReimbursementServices:20 - Getting all Reimbursements
+2020-09-07 17:02:34 INFO  ReimbursementServices:30 - Getting all Reimbursements by statusReimbStatus [statusId=3, status=denied]
+2020-09-07 17:02:39 INFO  ReimbursementServices:30 - Getting all Reimbursements by statusReimbStatus [statusId=1, status=pending]
+2020-09-07 17:02:45 INFO  ReimbursementServices:30 - Getting all Reimbursements by statusReimbStatus [statusId=2, status=approved]
+2020-09-07 17:03:14 INFO  UserServices:28 - Getting User by username the_eddie
+2020-09-07 17:03:14 INFO  UserServices:28 - Getting User by username the_eddie
+2020-09-07 17:03:17 INFO  UserServices:23 - Getting User with id 5
+2020-09-07 17:03:17 INFO  ReimbursementServices:25 - Getting all Reimbursements by author User [userId=5, userName=the_eddie, passWord=-576159084, firstName=Eddie, lastName=Ballar, email=rawwpork@gmail.com, userRoleId=1]
+2020-09-07 17:10:08 INFO  UserServices:28 - Getting User by username the_eddie
+2020-09-07 17:10:25 INFO  UserServices:28 - Getting User by username the_eddie
+2020-09-07 17:12:14 INFO  UserServices:23 - Getting User with id 5
+2020-09-07 17:12:14 INFO  ReimbursementServices:40 - Adding Reimbursement Reimbursement [reimbId=0, reimbAmt=49.99, submitted=2020-09-07 17:12:14.637, resolved=null, description=Bought office supplies, reimbAuthorId=User [userId=5, userName=the_eddie, passWord=-576159084, firstName=Eddie, lastName=Ballar, email=rawwpork@gmail.com, userRoleId=1], reimbResolverId=null, reimbStatusId=ReimbStatus [statusId=1, status=pending], reimbTypeId=ReimbType [typeId=4, type=other]]
+2020-09-07 17:12:22 INFO  UserServices:23 - Getting User with id 5
+2020-09-07 17:12:22 INFO  ReimbursementServices:25 - Getting all Reimbursements by author User [userId=5, userName=the_eddie, passWord=-576159084, firstName=Eddie, lastName=Ballar, email=rawwpork@gmail.com, userRoleId=1]
+2020-09-07 17:12:59 INFO  UserServices:28 - Getting User by username opnami
+2020-09-07 17:12:59 INFO  UserServices:28 - Getting User by username opnami
+2020-09-07 17:13:05 INFO  ReimbursementServices:20 - Getting all Reimbursements
+2020-09-07 17:14:20 INFO  ReimbursementServices:30 - Getting all Reimbursements by statusReimbStatus [statusId=1, status=pending]
+2020-09-07 17:14:37 INFO  ReimbursementServices:30 - Getting all Reimbursements by statusReimbStatus [statusId=2, status=approved]
+2020-09-07 17:14:42 INFO  ReimbursementServices:30 - Getting all Reimbursements by statusReimbStatus [statusId=3, status=denied]
+2020-09-07 17:16:06 INFO  ReimbursementServices:35 - Getting Reimbursement by id 3
+2020-09-07 17:16:06 INFO  UserServices:23 - Getting User with id 6
+2020-09-07 17:16:06 INFO  ReimbursementServices:45 - Updating Reimbursement Reimbursement [reimbId=3, reimbAmt=77.77, submitted=2020-09-05 10:54:45.148202, resolved=2020-09-07 17:16:06.107, description=test stuff, reimbAuthorId=User [userId=7, userName=test, passWord=3556498, firstName=Test, lastName=Test, email=test@gmail.com, userRoleId=1], reimbResolverId=User [userId=6, userName=opnami, passWord=713698937, firstName=Nancy, lastName=Ballar, email=lightituplikedynamite@gmail.com, userRoleId=2], reimbStatusId=ReimbStatus [statusId=2, status=approved], reimbTypeId=ReimbType [typeId=1, type=food]]
+2020-09-07 17:16:13 INFO  ReimbursementServices:20 - Getting all Reimbursements
+2020-09-07 17:16:31 INFO  ReimbursementServices:30 - Getting all Reimbursements by statusReimbStatus [statusId=2, status=approved]
+2020-09-07 17:16:48 INFO  ReimbursementServices:30 - Getting all Reimbursements by statusReimbStatus [statusId=3, status=denied]

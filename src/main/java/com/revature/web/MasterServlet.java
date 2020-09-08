@@ -90,9 +90,5 @@ public class MasterServlet extends HttpServlet {
 		doGet(req, res);
 	}
 	
-	@Override
-	protected void doPut(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		doGet(req, res);
-	}
 	
 }
